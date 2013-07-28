@@ -1,8 +1,8 @@
 //
-//  EventUtil.h
+//  EditCalViewController.h
 //  EventSync
 //
-//  Created by mtaniuchi on 13/07/03.
+//  Created by mtaniuchi on 13/07/28.
 
 /*
  The MIT License (MIT)
@@ -27,34 +27,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  */
+#import <UIKit/UIKit.h>
 
-#import <Foundation/Foundation.h>
-#import <EventKit/EventKit.h>
-
-#define EVTUTIL (EventUtil*)[EventUtil sharedInstance]
-
-@interface EventUtil : NSObject
-
-// instance
-+ (EventUtil*)sharedInstance;
-
-// property
-@property (assign) bool calendarIsEnabled;
-@property (assign) bool reminderIsEnabled;
-
-#pragma mark initialize
-- (void)initializeCalendar;
-- (void)initializeReminder;
-
-#pragma mark getList
-- (NSMutableArray*)getCalenderList;
-- (NSMutableArray*)getReminderList;
-
-#pragma mark getEvents
-- (NSMutableArray*)getCalenderEvents:(EKCalendar*)parent;
-- (NSArray*)getReminderEvents:(EKReminder*)parent;
-
-#pragma mark ValueToString
-- (NSString*)valueToString:(EKRecurrenceFrequency)value;
+@interface EditCalViewController : UITableViewController
 
 @end

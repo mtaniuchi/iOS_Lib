@@ -31,6 +31,8 @@
 #import "RemEventsViewController.h"
 #import "EventUtil.h"
 
+#import "EditReminderViewController.h"
+
 @interface RemEventsViewController ()
 
 @end
@@ -110,6 +112,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    EditReminderViewController *vc = [[EditReminderViewController alloc]
+                                      initWithStyle:UITableViewStyleGrouped];
+    vc.editingReminder = [_events objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

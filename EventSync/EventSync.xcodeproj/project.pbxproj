@@ -10,6 +10,8 @@
 		F06CEA311784EA18007ADD94 /* RemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06CEA301784EA18007ADD94 /* RemListViewController.m */; };
 		F06CEA341784EB6D007ADD94 /* CalEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06CEA331784EB6D007ADD94 /* CalEventsViewController.m */; };
 		F06CEA391784EBFE007ADD94 /* RemEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F06CEA381784EBFE007ADD94 /* RemEventsViewController.m */; };
+		F07AE5EA17A4D29000B2D5C8 /* EditReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07AE5E917A4D29000B2D5C8 /* EditReminderViewController.m */; };
+		F07AE5ED17A4D7B800B2D5C8 /* EditCalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F07AE5EC17A4D7B800B2D5C8 /* EditCalViewController.m */; };
 		F080DB2C1783EA71004FA345 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080DB2B1783EA71004FA345 /* UIKit.framework */; };
 		F080DB2E1783EA71004FA345 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080DB2D1783EA71004FA345 /* Foundation.framework */; };
 		F080DB301783EA71004FA345 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080DB2F1783EA71004FA345 /* CoreGraphics.framework */; };
@@ -33,6 +35,10 @@
 		F06CEA331784EB6D007ADD94 /* CalEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalEventsViewController.m; sourceTree = "<group>"; };
 		F06CEA371784EBFE007ADD94 /* RemEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemEventsViewController.h; sourceTree = "<group>"; };
 		F06CEA381784EBFE007ADD94 /* RemEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemEventsViewController.m; sourceTree = "<group>"; };
+		F07AE5E817A4D29000B2D5C8 /* EditReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditReminderViewController.h; sourceTree = "<group>"; };
+		F07AE5E917A4D29000B2D5C8 /* EditReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditReminderViewController.m; sourceTree = "<group>"; };
+		F07AE5EB17A4D7B800B2D5C8 /* EditCalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCalViewController.h; sourceTree = "<group>"; };
+		F07AE5EC17A4D7B800B2D5C8 /* EditCalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCalViewController.m; sourceTree = "<group>"; };
 		F080DB281783EA71004FA345 /* EventSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F080DB2B1783EA71004FA345 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F080DB2D1783EA71004FA345 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,6 +99,17 @@
 			name = Events;
 			sourceTree = "<group>";
 		};
+		F07AE5EE17A4DA8200B2D5C8 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				F07AE5EB17A4D7B800B2D5C8 /* EditCalViewController.h */,
+				F07AE5EC17A4D7B800B2D5C8 /* EditCalViewController.m */,
+				F07AE5E817A4D29000B2D5C8 /* EditReminderViewController.h */,
+				F07AE5E917A4D29000B2D5C8 /* EditReminderViewController.m */,
+			);
+			name = Edit;
+			sourceTree = "<group>";
+		};
 		F080DB1F1783EA71004FA345 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +149,7 @@
 				F080DB491783EA72004FA345 /* MasterViewController.xib */,
 				F06CEA351784EB76007ADD94 /* List */,
 				F06CEA361784EB85007ADD94 /* Events */,
+				F07AE5EE17A4DA8200B2D5C8 /* Edit */,
 				F080DB321783EA71004FA345 /* Supporting Files */,
 			);
 			path = EventSync;
@@ -235,6 +253,8 @@
 				F06CEA311784EA18007ADD94 /* RemListViewController.m in Sources */,
 				F06CEA341784EB6D007ADD94 /* CalEventsViewController.m in Sources */,
 				F06CEA391784EBFE007ADD94 /* RemEventsViewController.m in Sources */,
+				F07AE5EA17A4D29000B2D5C8 /* EditReminderViewController.m in Sources */,
+				F07AE5ED17A4D7B800B2D5C8 /* EditCalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

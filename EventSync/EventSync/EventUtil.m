@@ -148,24 +148,6 @@ static EventUtil* instance = nil;
     }
     if ([eventCalendars count] == 0) { return result; }
     
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//
-//    NSDateComponents *oneDayAgoComponents = [[NSDateComponents alloc] init];
-//    oneDayAgoComponents.day = -1;
-//    NSDate *oneDayAgo = [calendar dateByAddingComponents:oneDayAgoComponents
-//                                                  toDate:[NSDate date]
-//                                                 options:0];
-//    
-//    NSDateComponents *oneYearFromNowComponents = [[NSDateComponents alloc] init];
-//    oneYearFromNowComponents.year = 1;
-//    NSDate *oneYearFromNow = [calendar dateByAddingComponents:oneYearFromNowComponents
-//                                                       toDate:[NSDate date]
-//                                                      options:0];
-//    
-//    NSPredicate *predicate = [store predicateForEventsWithStartDate:oneDayAgo
-//                                                     endDate:oneYearFromNow
-//                                                   calendars:eventCalendars];
-
     // Get the appropriate calendar
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
@@ -200,21 +182,21 @@ static EventUtil* instance = nil;
         return result;
     }
     
-    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
-	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
-	
+    // fetch all events
     NSArray *eventCalendars = [store calendarsForEntityType:EKEntityTypeReminder];
     
     // find parent
-    for (EKReminder *rem in eventCalendars) {
+    for (EKCalendar *rem in eventCalendars) {
         if ([parent isEqual:rem]) {
             eventCalendars = [[NSArray alloc] initWithObjects:rem, nil];
             break;
         }
     }
-    
     if ([eventCalendars count] == 0) { return result; }
     
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+	
     NSPredicate *predicate = [store predicateForRemindersInCalendars:eventCalendars];
 
 	dispatch_async(queue,
@@ -223,7 +205,6 @@ static EventUtil* instance = nil;
                        [store fetchRemindersMatchingPredicate:predicate
                                                    completion:^(NSArray *reminders) {
                                                        for (EKReminder *rem in reminders) {
-                                                           NSLog(@"%@" ,rem.calendarItemIdentifier);
                                                            [result addObject:rem];
                                                        }
                                                        dispatch_semaphore_signal(sema);
@@ -234,5 +215,18 @@ static EventUtil* instance = nil;
     return result;
 }
 
+- (NSString*)valueToString:(EKRecurrenceFrequency)value
+{
+    switch (value) {
+        case EKRecurrenceFrequencyDaily:
+            return NSLocalizedString(@"FrequencyDaily", nil);
+        case EKRecurrenceFrequencyWeekly:
+            return NSLocalizedString(@"FrequencyWeekly", nil);
+        case EKRecurrenceFrequencyMonthly:
+            return NSLocalizedString(@"FrequencyMonthly", nil);
+        default:
+            return NSLocalizedString(@"FrequencyYearly", nil);
+    }
+}
 
 @end
